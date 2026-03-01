@@ -1,0 +1,5 @@
+MITSO_DB=postgres
+PORT=3000
+MITSO_TOKEN=secret123
+USER=admin
+MITSO_LANG=javascript

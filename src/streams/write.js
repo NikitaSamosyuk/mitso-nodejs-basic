@@ -6,15 +6,11 @@ const write = async () => {
 
     console.log('Введите текст (Ctrl+C для завершения):');
 
-    // консоль -> файл
     process.stdin.pipe(stream);
 
-    // Обработка завершения и ошибок
-    return new Promise((resolve, reject) => {
-        stream.on('finish', resolve);
-        stream.on('error', reject);
-        process.stdin.on('error', reject);
-    }); 
+    // Обработка ошибок
+    stream.on('error', (err) => console.error('Ошибка записи:', err));
+    process.stdin.on('error', (err) => console.error('Ошибка ввода:', err)); 
 };
 
 await write();
